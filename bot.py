@@ -68,7 +68,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Диалог отменён.")
     return ConversationHandler.END
 
-if name == "__main__":
+if __name__ == "__main__":
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 
     # FSM для погоды
