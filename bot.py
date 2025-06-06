@@ -15,7 +15,7 @@ OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 ASK_CITY = 1
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    kb = [["📍 Узнать погоду", "ℹ️ Помощь"]]
+    kb = [["📍 Узнать погоду"]]
     reply_markup = ReplyKeyboardMarkup(kb, resize_keyboard=True)
     await update.message.reply_text("Привет! Что ты хочешь сделать?", reply_markup=reply_markup)
 
@@ -24,11 +24,7 @@ async def handle_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if text == "📍 Узнать погоду":
         await update.message.reply_text("Введи название города:")
         return ASK_CITY
-    elif text == "ℹ️ Помощь":
-        await update.message.reply_text("Я могу показать погоду. Просто выбери соответствующий пункт в меню.")
-    else:
-        await update.message.reply_text("Пожалуйста, выбери действие с кнопок ниже.")
-
+    
 async def get_weather(update: Update, context: ContextTypes.DEFAULT_TYPE):
     city = update.message.text
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={OPENWEATHER_API_KEY}&units=metric&lang=ru"
