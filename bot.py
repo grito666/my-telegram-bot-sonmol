@@ -1,4 +1,3 @@
-𝙶𝚁𝙸𝚃𝙾🫩, [06.06.2025 12:49]
 import os
 import logging
 import requests
